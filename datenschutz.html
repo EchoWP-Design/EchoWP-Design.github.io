@@ -20,11 +20,13 @@
 <ul>
 <li>Zugangsdaten der E-Mail-Konten, der API-Schlüssel für KI-Funktionen und die Google-Anmeldung werden ausschließlich im geschützten Speicher des Geräts abgelegt (Android Keystore bzw. Windows-Datenschutz-API).</li>
 <li>E-Mails werden direkt zwischen dem Gerät und dem jeweiligen E-Mail-Anbieter (IMAP/SMTP, verschlüsselt) übertragen.</li>
+<li>Das Adressbuch, gemerkte Empfängeradressen („Gedächtnis“) und das eigene Wörterbuch der Rechtschreibprüfung liegen nur auf dem Gerät und – falls der Abgleich eingerichtet ist – verschlüsselt in der Google-Drive-Datei (Abschnitt 3).</li>
+<li>Die Rechtschreibprüfung ohne Internet nutzt das Wörterbuch des Betriebssystems (Android-Rechtschreibdienst bzw. Windows-Rechtschreibprüfung); dabei verlässt kein Text die App in Richtung des Entwicklers.</li>
 </ul>
 </section>
 <section>
 <h2>3. Google Drive</h2>
-<p>Richtet der Nutzer den Abgleich ein, legt die App einen Ordner „EchoWP-Mail“ mit einer einzigen Datei im eigenen Google Drive des Nutzers an (Berechtigung <code>https://www.googleapis.com/auth/drive.file</code>). Diese Datei enthält Kontoeinstellungen und ist vor dem Hochladen mit AES-256 und einem nur dem Nutzer bekannten Passwort verschlüsselt. Die App hat nur Zugriff auf Dateien, die sie selbst angelegt hat – nicht auf andere Dateien in Google Drive. Die Nutzung von Daten aus Google-APIs entspricht der <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, einschließlich der Anforderungen zur eingeschränkten Nutzung (Limited Use).</p>
+<p>Richtet der Nutzer den Abgleich ein, legt die App einen Ordner „EchoWP-Mail“ mit einer einzigen Datei im eigenen Google Drive des Nutzers an (Berechtigung <code>https://www.googleapis.com/auth/drive.file</code>). Diese Datei enthält Kontoeinstellungen, Adressbuch und gemerkte Adressen und ist vor dem Hochladen mit AES-256 und einem nur dem Nutzer bekannten Passwort verschlüsselt. Die App hat nur Zugriff auf Dateien, die sie selbst angelegt hat – nicht auf andere Dateien in Google Drive. Die Nutzung von Daten aus Google-APIs entspricht der <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, einschließlich der Anforderungen zur eingeschränkten Nutzung (Limited Use).</p>
 <p>Die Verbindung kann jederzeit in der App getrennt oder unter <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> widerrufen werden.</p>
 </section>
 <section>
@@ -32,11 +34,16 @@
 <p>Nur wenn der Nutzer eine KI-Funktion ausdrücklich auslöst, wird der Inhalt der betreffenden E-Mail (bei der Sortierung nur Absender und Betreff) mit dem eigenen API-Schlüssel des Nutzers an die Claude-API von Anthropic gesendet. Es gelten die Datenschutzbestimmungen von Anthropic.</p>
 </section>
 <section>
-<h2>5. Weitergabe und Speicherdauer</h2>
-<p>Eine Weitergabe an Dritte findet nicht statt. Alle Daten bleiben gespeichert, bis der Nutzer sie in der App löscht, die App deinstalliert oder die Datei in Google Drive entfernt.</p>
+<h2>5. Grammatikprüfung mit LanguageTool (optional)</h2>
+<p>Ist in den Einstellungen „Grammatik online prüfen (LanguageTool)“ eingeschaltet (Standard), sendet die App beim Schreiben einer E-Mail nach einer kurzen Tipp-Pause den selbst geschriebenen Text (Text vor der zitierten Originalmail, ohne Empfänger, Betreff und Anhänge) über eine verschlüsselte Verbindung an den kostenlosen Prüfdienst <a href="https://languagetool.org">LanguageTool</a> (<code>api.languagetool.org</code>). Dabei wird dem Anbieter technisch bedingt auch die IP-Adresse übermittelt. Ein Konto wird nicht verwendet. Für die Verarbeitung ist der Anbieter verantwortlich, es gelten dessen <a href="https://languagetool.org/legal/privacy">Datenschutzbestimmungen</a> (Anbieter: siehe <a href="https://languagetool.org/legal">Impressum von LanguageTool</a>).</p>
+<p>Die Prüfung lässt sich in der App jederzeit ausschalten – dauerhaft in den Einstellungen oder für eine einzelne E-Mail im Schreiben-Fenster. Für vertrauliche Inhalte sollte sie ausgeschaltet werden.</p>
 </section>
 <section>
-<h2>6. Kontakt</h2>
+<h2>6. Weitergabe und Speicherdauer</h2>
+<p>Eine Weitergabe an Dritte findet nur in den oben beschriebenen, vom Nutzer eingeschalteten oder ausgelösten Fällen statt (Google Drive, Claude-API, LanguageTool). Alle Daten bleiben gespeichert, bis der Nutzer sie in der App löscht, die App deinstalliert oder die Datei in Google Drive entfernt.</p>
+</section>
+<section>
+<h2>7. Kontakt</h2>
 <p>Fragen zum Datenschutz über das GitHub-Profil <a href="https://github.com/EchoWP-Design">EchoWP-Design</a>.</p>
 <p><small>Stand: November 2026</small></p>
 </section>
